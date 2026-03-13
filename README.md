@@ -8,7 +8,7 @@ A robust, production-ready RESTful API built with Node.js and Express. This proj
 
 ## 🚀 Key Features
 
-* **RESTful Architecture:** Engineered a scalable RESTful API utilizing Node.js and the Express framework.
+* **RESTful Architecture:** Built a scalable RESTful API with Node.js and the Express framework.
 * **Automated CI/CD Pipeline:** Integrated a fully automated Continuous Integration pipeline using GitHub Actions to streamline testing and deployment.
 * **Advanced Security:** Secured authentication flows using JSON Web Tokens (JWT). Implemented strict input validation middleware to enforce schema constraints, ensure data integrity, and prevent Cross-Site Scripting (XSS) attacks.
 * **Comprehensive Testing:** Developed rigorous integration tests using Jest and Supertest. Achieved >80% test coverage, validating system stability and robust error handling under various edge-case conditions.
