@@ -4,7 +4,7 @@ require('express-async-errors');
 const express = require('express');
 const app = express();
 const connectDB = require('./db/connect');
-
+const cors = require('cors'); 
 const helmet = require('helmet');
 // XSS Sanitization middleware - commented to focus on testing
 // In production deployment, uncomment and configure appropriately
@@ -22,6 +22,8 @@ app.use(express.json());  // parses json to java object
 app.use(helmet());// set security headers
 // app.use(xssSanitize()); // enhance security against xss threats
 
+
+app.use(cors({ origin: 'http://localhost:5173' }))
 
 // routes
 app.use('/api/v1/auth', authRouter); // public authentication route
