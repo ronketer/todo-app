@@ -5,7 +5,7 @@ module.exports = {
   transform: {
     '^.+\\.js$': 'babel-jest',
   },
-  setupFilesAfterEnv: ['<rootDir>/tests/setup.js'],
+  setupFilesAfterEnv: ['./tests/setup.js'],
   
   // THE FIX: Only measure coverage in these specific folders!
   collectCoverageFrom: [
