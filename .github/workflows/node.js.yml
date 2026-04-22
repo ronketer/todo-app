@@ -64,6 +64,10 @@ jobs:
           # With caching, npm reuses downloaded packages from previous builds (faster)
           cache: 'npm'
           cache-dependency-path: server/package-lock.json
+      
+      - name: Clear npm cache on failure
+        if: failure()
+        run: npm cache clean --force
           
       # Install project dependencies using npm ci (clean install)
       # npm ci is preferred in CI/CD for reproducible builds
@@ -115,6 +119,10 @@ jobs:
       - name: Install client dependencies
         working-directory: client
         run: npm ci
+
+      - name: Lint client code
+        working-directory: client
+        run: npm run lint --if-present
 
       - name: Build React app
         working-directory: client
