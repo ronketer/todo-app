@@ -36,6 +36,7 @@ export function AuthProvider({ children }) {
 
 // Custom hook: convenience function to access auth context from any component
 // Instead of useContext(AuthContext), you just call useAuth()
+// eslint-disable-next-line react-refresh/only-export-components
 export function useAuth() {
   return useContext(AuthContext); // Returns { token, login, logout }
 }

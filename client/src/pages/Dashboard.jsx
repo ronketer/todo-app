@@ -31,14 +31,16 @@ export default function Dashboard() {
   }
 
   useEffect(() => {
-    fetchTodos(1);
+    (async () => {
+      await fetchTodos(1);
+    })();
   }, []);
 
   async function handleAdd(title) {
     try {
       setError("");
       await api.post("/todos", { title });
-      fetchTodos(page);
+      await fetchTodos(page);
     } catch (err) {
       setError(err.response?.data?.msg || "Failed to add todo");
     }
