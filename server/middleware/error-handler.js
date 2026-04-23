@@ -8,10 +8,6 @@ const customErrorHandler = (err, req, res, next) => {
     return res.status(StatusCodes.BAD_REQUEST).json({ msg: 'Invalid JSON payload' });
   }
 
-  if (err.type === 'entity.parse.failed') {
-    return res.status(StatusCodes.BAD_REQUEST).json({ msg: 'Invalid JSON payload' });
-  }
-
   if (err instanceof CustomAPIError) {
     return res.status(err.statusCode).json({ msg: err.message })
   }

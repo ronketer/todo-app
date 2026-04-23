@@ -111,4 +111,26 @@ describe('Todo Core Logic - Happy Paths and Branches', () => {
       .send({}); // Sending nothing
     expect(response.status).toBe(400);
   });
+
+  it('should return 404 when getting a non-existent todo', async () => {
+    const response = await request(app)
+      .get('/api/v1/todos/99999')
+      .set('Authorization', `Bearer ${authToken}`);
+    expect(response.status).toBe(404);
+  });
+
+  it('should return 404 when updating a non-existent todo', async () => {
+    const response = await request(app)
+      .put('/api/v1/todos/99999')
+      .set('Authorization', `Bearer ${authToken}`)
+      .send({ title: 'Updated' });
+    expect(response.status).toBe(404);
+  });
+
+  it('should return 404 when deleting a non-existent todo', async () => {
+    const response = await request(app)
+      .delete('/api/v1/todos/99999')
+      .set('Authorization', `Bearer ${authToken}`);
+    expect(response.status).toBe(404);
+  });
 });

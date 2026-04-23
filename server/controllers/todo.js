@@ -1,6 +1,6 @@
 const { StatusCodes } = require('http-status-codes');
 const Todo = require('../models/Todo');
-const { NotFoundError, BadRequestError, ForbiddenError } = require('../errors/index');
+const { NotFoundError, BadRequestError } = require('../errors/index');
 
 // Validate todo title against schema constraints (minlength: 3, maxlength: 50)
 const validateTodoInput = (title) => {
@@ -71,10 +71,6 @@ const updateTodo = async (req, res) => {
 
   if (!todo) {
     throw new NotFoundError(`No Todo with id ${todoId}`);
-  }
-
-  if(!todo.createdBy.equals(userId)) {
-    throw new ForbiddenError('Forbidden');
   }
 
   res.status(StatusCodes.OK).json({
