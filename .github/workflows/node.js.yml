@@ -112,6 +112,10 @@ jobs:
           cache: 'npm'
           cache-dependency-path: client/package-lock.json
 
+      - name: Regenerate client lock file (Linux)
+        working-directory: client
+        run: npm install --package-lock-only
+
       - name: Install client dependencies
         working-directory: client
         run: npm ci
