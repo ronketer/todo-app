@@ -42,3 +42,6 @@ docs/
 # Client / Frontend
 client/node_modules/
 client/dist/
+
+
+server/scripts/
